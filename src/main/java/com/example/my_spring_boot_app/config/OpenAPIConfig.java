@@ -14,8 +14,8 @@ import org.springframework.context.annotation.Configuration;
         description = "This API provides endpoints for managing student data, including creating, retrieving, updating, and deleting records.",
         contact = @Contact(
             name = "API Support",
-            email = "support@example.com",
-            url = "https://www.example.com/support"
+            email = "ervijayraghuwanshi@gmail.com",
+            url = "https://ervijayraghuwanshi.github.io/ErVijayRaghuwanshi"
         ),
         license = @License(
             name = "Apache 2.0",

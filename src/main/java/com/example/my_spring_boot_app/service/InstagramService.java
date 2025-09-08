@@ -40,8 +40,20 @@ public class InstagramService {
             .bodyToMono(InstagramProfile.class)
             // It's crucial to handle exceptions to prevent the application from crashing
             .onErrorResume(WebClientResponseException.class, e -> {
-                System.err.println("Error fetching Instagram profile for " + username + ": " + e.getRawStatusCode());
+                System.err.println("Error fetching Instagram profile for " + username + ": " + e.getStatusCode());
                 return Mono.empty();
+            });
+    }
+
+        // New method (raw JSON response)
+    public Mono<String> getRawProfileByUsername(String username) {
+        return webClient.get()
+            .uri("?username={username}", username)
+            .retrieve()
+            .bodyToMono(String.class) // raw JSON
+            .onErrorResume(WebClientResponseException.class, e -> {
+                System.err.println("Error fetching raw Instagram profile for " + username + ": " + e.getStatusCode());
+                return Mono.just("{}"); // return empty JSON on error
             });
     }
 }

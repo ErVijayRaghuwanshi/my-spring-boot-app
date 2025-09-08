@@ -3,11 +3,18 @@ package com.example.my_spring_boot_app.controller;
 import com.example.my_spring_boot_app.dto.BookCreateDto;    // Import the new DTO
 import com.example.my_spring_boot_app.model.Book;
 import com.example.my_spring_boot_app.service.BookService;
+
+import io.swagger.v3.oas.annotations.tags.Tag;
+import io.swagger.v3.oas.annotations.tags.Tags;
+import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Slf4j
+@Tags({@Tag(name = "Book Management", description = "APIs for managing books")})
 @RestController
 @RequestMapping("/api/books")
 public class BookController {
